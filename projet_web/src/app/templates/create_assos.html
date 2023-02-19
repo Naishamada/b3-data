@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+
+{% block title %} creation d'une assos {% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Création d'une association</h1>
+    {% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+
+    {% for message in messages %}
+
+    <div class="alert alert-success alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">X</span>
+        </button>
+
+        {{message}}
+
+    </div>
+
+    {% endfor %}
+
+    {% endif %}
+
+    {% endwith %}
+
+    <h1>Merci de saisir les infos de l'association</h1>
+
+    <div class="container">
+        <form action="" method="post" novalidate>
+            {{form.csrf_token}}
+      
+            <div class="d-flex flex-column">
+                <div class="p-2">
+                    {{form.rna_id.label}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{form.rna_id(size=32)}}
+                    {% for error in form.rna_id.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}
+                </div>
+                <div class="p-2">
+                    {{form.rna_id_ex.label}}&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{form.rna_id_ex(size=32)}}
+                    {% for error in form.rna_id_ex.errors %}
+                        <span style="color:red;">{{error}} </span>
+                    {% endfor %}
+                </div>
+                <div class="p-2">
+                    {{form.gestion.label}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{form.gestion(size=32)}}
+                    {% for error in form.gestion.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}
+                </div>
+              </div>
+            <div class="container">
+                <input type="submit" value="Register" class="btn btn-success">
+            </div>
+    
+        </form>
+    </div>
+
+
+</div>
+
+{% endblock %}
