@@ -2,10 +2,10 @@ import csv
 import mysql.connector
 
 link = mysql.connector.connect(
-    host="mysql",
+    host="localhost",
     database='rna',
     user="root",
-    port="3310",
+    port="3306",
     password=""
 
 )

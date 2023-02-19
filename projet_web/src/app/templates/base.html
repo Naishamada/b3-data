@@ -1,22 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block title %}
-    <title>Titre par défault</title>
-    {% endblock %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/hello">Hello</a></li>
-      </ul>
-    </nav>
-    {% block content %}{% endblock %}
-  </body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+
+    <!-- CSS Bootstrap CDN Link -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">    
+    <a href="{{url_for('home')}}"><button class="nav-link">Home</button> </a>
+    <a href="{{url_for('about')}}"><button class="nav-link">About</button> </a>
+    <a href="{{url_for('hello')}}"><button class="nav-link">Hello</button> </a>
+    <a href="{{url_for('assos')}}"><button class="nav-link">Assos</button> </a>
+    <a href="{{url_for('create_assos')}}"><button class="nav-link">Create_assos</button> </a>
+</nav>
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/jquery.dataTables.js')}}"></script>
+<script src="{{ url_for('static', filename='jS/bootstrap.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/dataTables.bootstrap5.js')}}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js')}}"></script>
+
+
+
+{% block body %}
+
+{% endblock %}
+
+</body>
 </html>

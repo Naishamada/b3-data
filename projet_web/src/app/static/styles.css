@@ -8,3 +8,12 @@ body{
     background: bisque;
 }
 
+.table{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.table td, .table th {
+    border: 1px solid gray;
+    padding: 10px;
+}

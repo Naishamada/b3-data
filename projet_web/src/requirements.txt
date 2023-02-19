@@ -5,3 +5,7 @@ mysql-connector-python
 gunicorn
 Flask
 flask-sqlalchemy
+
+flask-wtf
+wtforms-html5
+wtf-peewee
