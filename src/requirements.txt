@@ -9,3 +9,5 @@ flask-sqlalchemy
 flask-wtf
 wtforms-html5
 wtf-peewee
+
+flask-restx

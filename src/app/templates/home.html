@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block title %} Page d'accueil {% endblock %} {%
+block body %}
+<div class="container">
+  <h1>Hello world !</h1>
+  <canvas id="myChart" width="400" height="400"></canvas>
+  <script>
+    // Global parameters:
+    // do not resize the chart canvas when its container does (keep at 600x400px)
+    Chart.defaults.global.responsive = false;
+    const data = {
+        
+        labels: [{% for item in labels %}"{{item}}",{% endfor %}],
+        datasets: [{
+            label: '{{ legend }}',
+            data: [{% for item in values %}{{item}},{% endfor %}],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)'
+            ],
+            hoverOffset: 4
+        }]
+    };
+    const ctx = document.getElementById("myChart");
+
+    new Chart(ctx, {
+      type: "pie",
+      data: data
+    });
+  </script>
+</div>
+{% endblock %}
